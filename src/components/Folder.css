@@ -1,7 +1,7 @@
 .folder-btn {
 	list-style: none;
 	border-bottom: 1px solid black;
-	padding: 5px 5px;
+	padding: 5px 0;
 	text-align: center;
 }
 li:first {
@@ -10,9 +10,16 @@ li:first {
 li:active {
 	background-color: lightblue;
 }
+ul {
+	padding-left: 0;
+	width: 100%;
+	max-width: 300px;
+	max-width: 400px;
+}
 
 .allFolders {
 	margin: 0 0;
 	/* padding: 10px 15px; */
 	border-right: 1px solid black;
+	
 }

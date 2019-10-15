@@ -1,18 +1,23 @@
 header {
 	text-align: center;
 	border-bottom: 1px solid black;
+	width: 100vw;
 }
 
 main {
 	display: flex;
+	flex-direction: row;
 	justify-content: flex-start;
 }
 
-ul {
+.container {
+	display: flex;
+}
+
+.folder-btn {
 	padding-left: 0;
 	width: 100%;
 	max-width: 300px;
-	max-width: 400px;
 }
 
 button {

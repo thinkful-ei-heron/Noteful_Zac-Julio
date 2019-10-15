@@ -7,6 +7,7 @@ import Folder from './components/Folder'
 import store from './store'
 import BackBtn from './components/BackBtn'
 import {Route, Switch} from 'react-router-dom'
+import './components/Main.css'
 
 export default class App extends React.Component {
   state = {
@@ -29,6 +30,7 @@ export default class App extends React.Component {
 
       <Route path='/' component={Header}/>
       
+      <main>
       <Switch>
       
         <Route exact path='/' render={() => 
@@ -39,9 +41,9 @@ export default class App extends React.Component {
           const {id} = routeProps.match.params;
           let filteredNotes = store.notes.filter(note => note.folderId === id);
           return(
-            <div>
-              <Notes store={filteredNotes}/>
+            <div className='container'>
               <Folder store={this.state.store.folders} /> 
+              <Notes store={filteredNotes}/>
             </div>
           )}}/>
 
@@ -49,42 +51,15 @@ export default class App extends React.Component {
             const {id} = routeProps.match.params;
             let note = store.notes.filter(note => note.id === id);
             let currFolder = store.folders.find(folder => folder.id === note[0].folderId);
-            console.log(currFolder);
             return(
-              <div>
+              <div className='container'>
+                <BackBtn folder={note[0].folderId} name={currFolder.name} />
                 <Notes store={note}/>
                 <NoteContent content={note[0].content} />
-                <BackBtn folder={note[0].folderId} name={currFolder.name} />
               </div>
           )}}/>
-        
-        
-       
       </Switch>
-      
+      </main>
     </div>
   )};
 }
-
-/* <Route exact path='/note/:id' render={() =>
-          <Notes store={this.state.store.notes}/>}
-        /> */
-
-/*  <div className="app">
-            // Exact route - will only match /
-            <Route exact path="/" component={HomePage} />
-            // Inexact route - will match /settings, /settings/profile
-            // and /settings/email
-            <Route path="/settings" component={SettingsNavigation} />
-            <Route
-                exact
-                path="/settings/profile"
-                component={ProfileSettings}
-            />
-            // If you want to pass props to the component, use the render prop
-            <Route
-                exact
-                path="/settings/email"
-                render={() => <EmailSettings email="jturner@thinkful.com" />}
-            />
-        </div> */

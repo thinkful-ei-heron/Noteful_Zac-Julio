@@ -2,7 +2,7 @@ import React from 'react'
 
 function NoteContent(props) {
     return(
-        <div>
+        <div className='desc'>
             <p>{props.content}</p>
         </div>
 	);
