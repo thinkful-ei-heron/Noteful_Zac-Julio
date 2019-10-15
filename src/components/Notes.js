@@ -1,16 +1,19 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './Notes.css'
 
 function Notes(props) {
     const notes = props.store.map(item => {
+		const noteLink = `/note/${item.id}`;
 		return (
-		<li className='list-btn' key={item.id} onClick={() => props.handleNote(item.id)}>
-			<h2>{item.name}</h2>
+		<li className='list-btn' key={item.id}>
+            <h2><Link to={noteLink}>{item.name}</Link></h2>
             <p>Date Modified: {item.modified}</p>
 			<button>Delete</button>
         </li>
 		)
-	});
+    });
+    // onClick={() => props.handleNote(item.id)}
 
     return (
         <ul className='allNotes'>

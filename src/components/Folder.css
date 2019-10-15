@@ -1,11 +1,14 @@
 .folder-btn {
 	list-style: none;
-	border: 1px solid black;
+	border-bottom: 1px solid black;
 	padding: 5px 5px;
 	text-align: center;
 }
 li:first {
 	margin-top: 10px;
+}
+li:active {
+	background-color: lightblue;
 }
 
 .allFolders {
