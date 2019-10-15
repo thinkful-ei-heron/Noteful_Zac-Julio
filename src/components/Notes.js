@@ -13,7 +13,6 @@ function Notes(props) {
         </li>
 		)
     });
-    // onClick={() => props.handleNote(item.id)}
 
     return (
         <ul className='allNotes'>

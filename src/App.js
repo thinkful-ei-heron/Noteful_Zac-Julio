@@ -2,15 +2,13 @@ import React from 'react'
 import Header from './components/Header'
 import Main from './components/Main'
 import Notes from './components/Notes'
+import NoteContent from './components/NoteContent'
 import Folder from './components/Folder'
 import store from './store'
+import BackBtn from './components/BackBtn'
 import {Route, Switch} from 'react-router-dom'
 
-// handleNote = (noteId) => {
-// }
-
 export default class App extends React.Component {
-  
   state = {
       store: store
   }
@@ -27,10 +25,10 @@ export default class App extends React.Component {
 
   render() {
   return (
-    // console.log(this),
-    // <h1>Hello</h1>
     <div className='app'>
+
       <Route path='/' component={Header}/>
+      
       <Switch>
       
         <Route exact path='/' render={() => 
@@ -46,16 +44,31 @@ export default class App extends React.Component {
               <Folder store={this.state.store.folders} /> 
             </div>
           )}}/>
+
+          <Route exact path='/note/:id' render={routeProps => {
+            const {id} = routeProps.match.params;
+            let note = store.notes.filter(note => note.id === id);
+            let currFolder = store.folders.find(folder => folder.id === note[0].folderId);
+            console.log(currFolder);
+            return(
+              <div>
+                <Notes store={note}/>
+                <NoteContent content={note[0].content} />
+                <BackBtn folder={note[0].folderId} name={currFolder.name} />
+              </div>
+          )}}/>
         
-        /* <Route exact path='/note/:id' render={() =>
-          <Notes store={this.state.store.notes}/>}
-        /> */}
+        
        
       </Switch>
       
     </div>
   )};
 }
+
+/* <Route exact path='/note/:id' render={() =>
+          <Notes store={this.state.store.notes}/>}
+        /> */
 
 /*  <div className="app">
             // Exact route - will only match /
