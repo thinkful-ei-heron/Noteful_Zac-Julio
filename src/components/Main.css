@@ -1,0 +1,22 @@
+header {
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+main {
+	display: flex;
+	justify-content: flex-start;
+}
+
+ul {
+	padding-left: 0;
+	width: 100%;
+	max-width: 300px;
+	max-width: 400px;
+}
+
+button {
+	height: 35px;
+	width: 120px;
+	margin: 10px;
+}

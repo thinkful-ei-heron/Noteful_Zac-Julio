@@ -1,0 +1,15 @@
+.folder-btn {
+	list-style: none;
+	border: 1px solid black;
+	padding: 5px 5px;
+	text-align: center;
+}
+li:first {
+	margin-top: 10px;
+}
+
+.allFolders {
+	margin: 0 0;
+	/* padding: 10px 15px; */
+	border-right: 1px solid black;
+}
